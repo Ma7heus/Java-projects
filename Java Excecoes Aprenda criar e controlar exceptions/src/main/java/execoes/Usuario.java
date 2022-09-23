@@ -6,8 +6,9 @@ public class Usuario extends EntityAbstract {
 	private String matricula;
 	private Filial filial;
 	
-	
-	
+	///wjsdhfhwf
+
+
 	public String getNome() {
 		return nome;
 	}
