@@ -1,18 +1,34 @@
 package execoes;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario extends EntityAbstract {
-	private Long Id;
+	@Id
+	@SequenceGenerator(name = "Usuario_Generator",sequenceName = "Id",allocationSize = 1)
+	@GeneratedValue(generator = "Usuario_Generator", strategy = GenerationType.SEQUENCE)
+	private Long IdUsuario;
+	@Column(length = 100)
 	private String nome;
 	private String matricula;
-	private Filial filial;
 	
-	///wjsdhfhwf
+	@ManyToOne
+	private Filial filial;
 
 
+	
 	public String getNome() {
 		return nome;
 	}
-
 
 
 	public void setNome(String nome) {
@@ -48,7 +64,7 @@ public class Usuario extends EntityAbstract {
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return Id;
+		return IdUsuario;
 	}
 
 }

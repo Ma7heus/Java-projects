@@ -1,27 +1,32 @@
 package execoes;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "filiais")
 public class Filial extends EntityAbstract{
-	private Long Id;
+	@Id
+	@SequenceGenerator(name = "Filial_Generator",sequenceName = "idFilial", allocationSize = 1)
+	@GeneratedValue(generator = "Filial_Generator",strategy = GenerationType.SEQUENCE)
+	private Long IdFilial;
+	
+	@Column(length = 100)
 	private String nome;
 	private String numero;
+	
+	@Column(length = 100)
 	private String cidade;
-	
-	
-	
-
-	
-	
-	
+		
 	
 	public String getNome() {
 		return nome;
 	}
-
-
-
-
-
-
 
 
 
@@ -105,7 +110,7 @@ public class Filial extends EntityAbstract{
 
 	@Override
 	public Long getId() {
-		return Id;
+		return IdFilial;
 	}
 	
 	
