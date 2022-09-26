@@ -1,9 +1,12 @@
 package execoes;
 
+import jakarta.persistence.ForeignKey;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
@@ -17,11 +20,17 @@ public class Smartphone extends EntityAbstract{
     @GeneratedValue(generator = "Smartphone_Generator",strategy = GenerationType.SEQUENCE)
 	private Long IdSmartphone;
     private String chapa;
+    
     @ManyToOne
+    @JoinColumn(name = "idModelo", foreignKey = @ForeignKey(name = "fk_idModelo"))
     private Modelo modelo;
+    
     @ManyToOne
+    @JoinColumn(name = "idStatus", foreignKey = @ForeignKey(name = "fk_idStatus"))
     private Status Status;
+    
     @OneToOne
+    @JoinColumn(name = "idUsuario", foreignKey = @ForeignKey(name = "fk_idusuario"))
     private Usuario usuario;
         
     

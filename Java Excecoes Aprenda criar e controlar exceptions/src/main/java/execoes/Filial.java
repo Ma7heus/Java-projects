@@ -23,6 +23,12 @@ public class Filial extends EntityAbstract{
 	@Column(length = 100)
 	private String cidade;
 		
+	public Filial(String numero,String cidade,String nome) {
+		this.cidade = cidade;
+		this.nome = nome;
+		this.numero = numero;
+		
+	}
 	
 	public String getNome() {
 		return nome;

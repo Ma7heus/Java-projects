@@ -4,25 +4,6 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="PostgrePU" transaction-type="RESOURCE_LOCAL">
-	
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		
-        <properties>
-            <property name="hibernate.show_sql" value="true" />
-            <property name="hibernate.format_sql" value="true" />
-            <property name="hibernate.hbm2ddl.auto" value="update" />            
-            
-           	<property name="jakarta.persistence.jdbc.user" value="postgres" />
-            <property name="jakarta.persistence.jdbc.password" value="postgres@engenharia" />
-            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver" />
-	    	<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://PC36117:5432/matheus" />
-            
-        </properties>
-
-    </persistence-unit>
-
     <persistence-unit name="SmartDB" transaction-type="RESOURCE_LOCAL">
 	
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -35,7 +16,7 @@
             <property name="jakarta.persistence.jdbc.password" value="#22Powerbank" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 	    	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/aluraprojects" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/smartphones" />
         </properties>
 
     </persistence-unit>

@@ -2,9 +2,11 @@ package execoes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -17,11 +19,15 @@ public class Usuario extends EntityAbstract {
 	@SequenceGenerator(name = "Usuario_Generator",sequenceName = "Id",allocationSize = 1)
 	@GeneratedValue(generator = "Usuario_Generator", strategy = GenerationType.SEQUENCE)
 	private Long IdUsuario;
+	
 	@Column(length = 100)
 	private String nome;
+	
+	@Column(length = 100)
 	private String matricula;
 	
 	@ManyToOne
+	@JoinColumn(name = "idFilial", foreignKey = @ForeignKey(name = "fk_idFilial"))
 	private Filial filial;
 
 
@@ -63,7 +69,6 @@ public class Usuario extends EntityAbstract {
 
 	@Override
 	public Long getId() {
-		// TODO Auto-generated method stub
 		return IdUsuario;
 	}
 

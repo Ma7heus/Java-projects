@@ -16,6 +16,7 @@ public class Modelo extends EntityAbstract {
 	@SequenceGenerator(name = "Modelo_Generator", sequenceName = "idModelo", allocationSize = 1)
 	@GeneratedValue(generator = "Modelo_Generator",strategy = GenerationType.SEQUENCE)
 	private Long idModelo;
+	
 	@Column(length = 100)
 	private String descricao;
 	@Column(precision = 10,scale = 5)
