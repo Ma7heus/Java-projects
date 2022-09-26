@@ -4,15 +4,38 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "topicos")
 public class Topico {
 
+	@Id
+	@SequenceGenerator(name = "topicos_Generator", sequenceName = "id_topico", allocationSize = 1)
+	@GeneratedValue(generator = "topicos_Generator", strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String titulo;
 	private String mensagem;
 	private LocalDateTime dataCriacao = LocalDateTime.now();
+	
+	@Enumerated(EnumType.STRING)
 	private StatusTopico status = StatusTopico.NAO_RESPONDIDO;
+	
+	@ManyToOne
 	private Usuario autor;
+	@ManyToOne
 	private Curso curso;
+	@OneToMany(mappedBy = "topicos")
 	private List<Resposta> respostas = new ArrayList<>();
 
 	public Topico(String titulo, String mensagem, Curso curso) {
