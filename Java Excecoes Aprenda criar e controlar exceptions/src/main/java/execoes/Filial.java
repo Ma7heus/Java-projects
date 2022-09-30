@@ -30,6 +30,10 @@ public class Filial extends EntityAbstract{
 		
 	}
 	
+	public Filial() {
+	}
+	
+	
 	public String getNome() {
 		return nome;
 	}

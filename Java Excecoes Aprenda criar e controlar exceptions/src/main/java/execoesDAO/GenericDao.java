@@ -10,15 +10,20 @@ public abstract class GenericDao {
 		this.setEm(em);
 	}
 	
-	public void cadastrar() {
-		em.getTransaction().begin();
-		Filial filial = new Filial("001", "Chapeco", "Matriz");
+	public void cadastrar(Filial classeEntidade) {
 		this.em.getTransaction().begin();
-		this.em.persist(filial);
+		this.em.persist(classeEntidade);
 		this.em.getTransaction().commit();
 		this.em.close();				
 	}
 	
+	public Filial buscar(Filial classeEntidade){
+		this.em.getTransaction().begin();
+		Filial entidade = this.em.find(classeEntidade.getClass(), classeEntidade);
+		this.em.getTransaction().commit();
+		this.em.close();
+		return entidade;
+	}
 	
 	
 	
