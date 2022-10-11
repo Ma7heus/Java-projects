@@ -16,8 +16,8 @@ public class FilialDao extends GenericDao{
 		
 	}
 	
-	public void buscar(Filial filial) {
-		super.buscar(filial);
+	public Filial buscar(Filial filial) {
+		return super.buscar(filial);
 	}
 	
 		
