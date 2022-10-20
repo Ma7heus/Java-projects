@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html" 	
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+	<h:messages/>
+
+<p:dataTable value="#{adminListaLivrosBean.livros}" var="livro">
+	<p:column>
+		<f:facet name="header">Titulo</f:facet>
+			#{livro.titulo}
+	</p:column>
+	<p:column>
+		<f:facet name="header">Descrição</f:facet>
+			#{livro.descricao}
+	</p:column>
+	<p:column>
+		<f:facet name="header">Paginas</f:facet>
+			#{livro.numeroPaginas}
+	</p:column>
+	<p:column>
+		<f:facet name="header">Preço</f:facet>
+			R$ #{livro.preco}
+	</p:column>
+	<p:column>
+		<f:facet name="header">Data Publicação</f:facet>
+			#{livro.dataPublicacao}
+	</p:column>
+	<p:column>
+		<f:facet name="header">Autor</f:facet>
+		<ui:repeat value="#{livro.autores}" var="autor" >
+					#{autor.nome}
+		</ui:repeat>
+	</p:column>
+		<p:column>
+		<f:facet name="header">Capa Path</f:facet>
+			<a href="#{request.contextPath}/file/#{livro.capaPath}"> 
+			#{livro.capaPath}</a> 
+			
+			<!-- Da para usar a tag img, e ela vai ser exibida na tela, ao inves d link -->
+			<!-- <img src="#{request.contextPath}/file/#{livro.capaPath}" 
+			alt="#{livro.titulo}"
+			height="10% width="10%/> -->
+			
+	</p:column>
+	
+</p:dataTable>
+
+
+
+</html>
