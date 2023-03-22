@@ -7,36 +7,34 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
+<h:head/>
 <h:form enctype="multipart/form-data">
-	<h:panelGrid columns="1">
-
-		<div>
+	<p:panelGrid columns="3">
+	<p:messages/>
+		
 			<p:outputLabel value="Titulo" for="titulo" />
 			<p:inputText id="titulo" value="#{adminLivrosBean.livro.titulo}"
 				required="true" />
 			<p:message for="titulo" />
-		</div>
-		<div>
+	
+		
 			<p:outputLabel value="Descrição" for="descricao" />
 			<p:inputTextarea id="descricao" rows="4" cols="20"
 				value="#{adminLivrosBean.livro.descricao}" required="true" />
 			<p:message for="descricao" />
-		</div>
-		<div>
+	
+	
 			<p:outputLabel value="Numero de paginas" for="numPaginas" />
 			<p:inputText id="numPaginas"
 				value="#{adminLivrosBean.livro.numeroPaginas}" required="true" />
 			<p:message for="numPaginas" />
-		</div>
-		<div>
+	
 			<p:outputLabel value="Preço" for="preco" />
 			<p:inputText id="preco" value="#{adminLivrosBean.livro.preco}"
 				required="true">
 			</p:inputText>
 			<p:message for="preco" />
-		</div>
-		<div>
+	
 			<p:outputLabel value="Autores" for="autores" />
 			<h:selectManyListbox id="autores"
 				value="#{adminLivrosBean.autoresId}">
@@ -44,8 +42,7 @@
 					itemValue="#{autor.id}" itemLabel="#{autor.nome}" />
 			</h:selectManyListbox>
 			<p:message for="autores" />
-		</div>
-		<div>
+		
 			<p:outputLabel value="Data de Publicação" for="dataPublicacao" />
 
 			<p:inputText id="dataPublicacao" required="true"
@@ -54,19 +51,18 @@
 			</p:inputText>
 
 			<p:message for="dataPublicacao" />
-		</div>
-		<div>
-			<h:outputLabel value="Capa do Livro" for="capaLivro" />
+		
+			<p:outputLabel value="Capa do Livro" for="capaLivro" />
 			<h:inputFile value="#{adminLivrosBean.capaLivro}" id="capaLivro" />
-			<h:message for="capaLivro" />
-		</div>
+			<p:message for="capaLivro" />
+	
 
 
 		<p:commandButton value="Cadastrar"
 			action="#{adminLivrosBean.cadastrar}" />
 
 
-	</h:panelGrid>
+	</p:panelGrid>
 </h:form>
 
 
